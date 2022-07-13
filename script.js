@@ -56,9 +56,6 @@ function checkBoxValue() {
     isRead.value = true
 }
 
-function bookGridOn() {
-    mainSection.classList.add("main__section-grid")
-}
 
 function bookGridAddBook() {
     const bookCard = document.createElement("div")
