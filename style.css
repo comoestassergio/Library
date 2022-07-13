@@ -90,8 +90,6 @@ section {
 
     background-color: var(--s-color);
     border-radius: 2rem;
-    border: 2px solid var(--h-color);
-
 }
 
 .pop-up__header {
@@ -172,6 +170,10 @@ section {
     display: none;
 }
 
+.dimmed {
+    background-color: #0909098c;
+}
+
 .cancel-btn {
     background-color: rgb(255, 153, 153);
 }
@@ -184,7 +186,7 @@ section {
 
     gap: 1rem;
 
-    margin: 1rem;
+    padding: 1rem;
 }
 
 .book-card {
