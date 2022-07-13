@@ -59,7 +59,7 @@ section {
 }
 
 .add-book-btn {
-    padding: 1.5rem 3rem;
+    height: 100%;
     font-size: 1.5rem;
 
     background-color: var(--h-color);
@@ -82,6 +82,8 @@ section {
     display: none;
 
     position: absolute;
+
+    left: 40%;
 
     height: 500px;
     width: 400px;
@@ -166,6 +168,38 @@ section {
     gap: 1rem;
 }
 
+.hidden {
+    display: none;
+}
+
 .cancel-btn {
     background-color: rgb(255, 153, 153);
+}
+
+.main__section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: minmax(400px, 1fr);
+
+    gap: 1rem;
+
+    margin: 1rem;
+}
+
+.book-card {
+    height: 100%;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 2rem;
+}
+
+.main__section-grid > div > p {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    text-align: center;
 }
