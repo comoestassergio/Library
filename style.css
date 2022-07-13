@@ -1,0 +1,77 @@
+:root {
+    --h-color: #090909;
+    --s-color: #fff;
+    --t-color: #fff; 
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 3rem; 
+
+    background-color: var(--h-color);
+
+    color: var(--t-color)
+}
+
+.logo {
+    font-size: 1.5rem;
+    text-transform: lowercase;
+    font-weight: 700;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--s-color);
+}
+
+.btn {
+    border: none; 
+    background-color: silver;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-book-btn {
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+
+    background-color: var(--h-color);
+
+    color: var(--t-color)
+}
+
+.info-btn {
+    font-size: 1.5rem;
+    padding: .2rem .7rem;
+    border-radius: 50%;
+    border: none;
+
+    font-weight: 700;
+
+    background-color: #fff;
+}
