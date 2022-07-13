@@ -22,8 +22,10 @@ const Book = {
 
 addBookBtn.addEventListener("click", function(){
     popUp.classList.add("visible")
+    mainSection.classList.add("dimmed")
     cancelBtn.addEventListener("click", function(){
         popUp.classList.remove("visible")
+        mainSection.classList.remove("dimmed")
     })
 })
 
@@ -33,8 +35,8 @@ isRead.addEventListener("change", checkBoxValue())
 submitBtn.addEventListener("click", function(){
     pushBook(createBook(), books)
     popUp.classList.remove("visible")
+    mainSection.classList.remove("dimmed")
     console.log(books)
-    bookGridOn()
     bookGridAddBook()
 })
 
