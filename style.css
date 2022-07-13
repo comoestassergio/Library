@@ -98,8 +98,6 @@ section {
     justify-content: center;
 
     height: 80px;
-
-    margin-bottom: 2rem;
 }
 
 .pop-up__section {
@@ -163,6 +161,11 @@ section {
 }
 
 .visible {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    gap: 1rem;
+}
+
+.cancel-btn {
+    background-color: rgb(255, 153, 153);
 }
