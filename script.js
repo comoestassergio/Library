@@ -6,6 +6,7 @@ const titleForm = document.querySelector(".title-form")
 const authorForm = document.querySelector(".author-form")
 const pagesForm = document.querySelector(".pages-form")
 const isRead = document.querySelector(".checkbox")
+const mainSection = document.querySelector("#main__section")
 
 const books = []
 
@@ -26,19 +27,55 @@ addBookBtn.addEventListener("click", function(){
     })
 })
 
-isRead.addEventListener("change", function(){
-    isRead.value === "true" ? isRead.value = false :
-    isRead.value = true
-    console.log(isRead.value)
-})
+isRead.addEventListener("change", checkBoxValue())
 
 
 submitBtn.addEventListener("click", function(){
+    pushBook(createBook(), books)
+    popUp.classList.remove("visible")
+    console.log(books)
+    bookGridOn()
+    bookGridAddBook()
+})
+
+function createBook(){
     const newBook = Object.create(Book)
     newBook.title = titleForm.value
     newBook.author = authorForm.value
     newBook.pages = pagesForm.value
     newBook.isRead = isRead.value
-    books.push(newBook)
-    console.log(books)
-})
+    return newBook
+}
+
+function pushBook(book, arr){
+    arr.push(book)
+}
+
+function checkBoxValue() {
+    isRead.value === "true" ? isRead.value = false :
+    isRead.value = true
+}
+
+function bookGridOn() {
+    mainSection.classList.add("main__section-grid")
+}
+
+function bookGridAddBook() {
+    const bookCard = document.createElement("div")
+    bookCard.classList.add("book-card")
+    const bookTitle = document.createElement("p")
+    const bookAuthor = document.createElement("p")
+    const bookPages = document.createElement("p")
+    const readStatus = document.createElement("p")
+
+    bookTitle.textContent = books[0].title
+    bookAuthor.textContent = books[0].author
+    bookPages.textContent = books[0].pages
+    readStatus.textContent = books[0].isRead
+
+    bookCard.appendChild(bookTitle)
+    bookCard.appendChild(bookAuthor)
+    bookCard.appendChild(bookPages)
+    bookCard.appendChild(readStatus)
+    mainSection.appendChild(bookCard)
+}
