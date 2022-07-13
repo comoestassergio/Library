@@ -21,7 +21,7 @@ main {
     height: 100vh;
 }
 
-header {
+.main__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,6 +45,8 @@ section {
     justify-content: center;
 
     background-color: var(--s-color);
+
+    position: relative;
 }
 
 .btn {
@@ -74,4 +76,93 @@ section {
     font-weight: 700;
 
     background-color: #fff;
+}
+
+.pop-up {
+    display: none;
+
+    position: absolute;
+
+    height: 500px;
+    width: 400px;
+
+    background-color: var(--s-color);
+    border-radius: 2rem;
+    border: 2px solid var(--h-color);
+
+}
+
+.pop-up__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 80px;
+
+    margin-bottom: 2rem;
+}
+
+.pop-up__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    height: 420px;
+    background-color: transparent;
+
+    gap: 1rem;
+    
+}
+
+.pop-up__section > form > label {
+    display: block;
+    font-size: 1.3rem;
+}
+
+.pop-up__section > form > input[type="text"],
+.pop-up__section > form > input[type="number"]
+ {
+    height: 2rem;
+    border-radius: 4rem;
+    padding-left: 1rem;
+    font-size: 1.1rem;
+    margin-top: .5rem;
+}
+
+.checkbox-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: .75rem;
+
+    margin-top: 1rem;
+}
+
+
+.checkbox-form > input {
+    padding: 0;
+    margin: 0;
+    
+    width: 1.2rem;
+    height: 1.2rem;
+
+    justify-self: flex-start;
+}
+
+.pop-up__section > form > input[type="submit"] {
+    font-size: 1.2rem;
+    padding: .5rem 3rem;
+
+    border: none;
+    border-radius: 4rem;
+    color: var(--t-color);
+    background-color: var(--h-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.visible {
+    display: flex;
+    flex-direction: column;
 }
