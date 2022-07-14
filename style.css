@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;900&display=swap');
+
 :root {
     --h-color: #090909;
     --s-color: #fff;
@@ -6,7 +8,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
+    font-family:"Montserrat", "Open Sans", sans-serif;
 }
 
 html, body {
@@ -191,17 +193,74 @@ section {
 
 .book-card {
     height: 100%;
-    border: 1px solid black;
+    position: relative;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     border-radius: 2rem;
+
+    background-image: url(/assets/bckgr-1.jpg);
+    background-size: 100%;
+
+    transition: background-size 300ms ease-in;
+}
+
+.book-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 80%;
+    height: 80%;
+
+    top: 10%;
+    left: 10%;
+
+    border-radius: 4rem;
+
+    background-color: rgba(204, 204, 204, 0.3);
+
+    backdrop-filter: blur(6px);
+
+    z-index: 0;
+}
+
+.book-card:hover {
+    background-size: 150%;
+}
+
+.book-card:hover::before {
+    backdrop-filter: blur(10px);
 }
 
 .main__section-grid > div > p {
-    font-size: 1.3rem;
-    text-transform: capitalize;
     text-align: center;
+
+    color: var(--t-color);
+
+    z-index: 1;
+}
+
+.card__title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+
+    margin: 1rem 2rem 0;
+}
+
+.card__author {
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+.card__pages {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.card__read {
+    font-size: 1rem;
 }
