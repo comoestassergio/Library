@@ -67,11 +67,13 @@ function bookGridAddBook() {
     const bookAuthor = document.createElement("p")
     const bookPages = document.createElement("p")
     const readStatus = document.createElement("p")
+    const closeBtn = document.createElement("button")
 
     bookTitle.classList.add("card__title")
     bookAuthor.classList.add("card__author")
     bookPages.classList.add("card__pages")
     readStatus.classList.add("card__read")
+    closeBtn.classList.add("book-card__close-btn")
 
     const lastBook = books[books.length-1]
 
@@ -84,6 +86,7 @@ function bookGridAddBook() {
     bookCard.appendChild(bookAuthor)
     bookCard.appendChild(bookPages)
     bookCard.appendChild(readStatus)
+    bookCard.appendChild(closeBtn)
     mainSection.appendChild(bookCard)
 }
 
