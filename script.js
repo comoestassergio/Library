@@ -38,6 +38,7 @@ submitBtn.addEventListener("click", function(){
     mainSection.classList.remove("dimmed")
     console.log(books)
     bookGridAddBook()
+    clearInput()
 })
 
 function createBook(){
@@ -54,8 +55,8 @@ function pushBook(book, arr){
 }
 
 function checkBoxValue() {
-    isRead.value === "true" ? isRead.value = false :
-    isRead.value = true
+    isRead.value === "true" ? isRead.value = "Finished" :
+    isRead.value = "Not finished yet"
 }
 
 
@@ -67,14 +68,28 @@ function bookGridAddBook() {
     const bookPages = document.createElement("p")
     const readStatus = document.createElement("p")
 
-    bookTitle.textContent = books[0].title
-    bookAuthor.textContent = books[0].author
-    bookPages.textContent = books[0].pages
-    readStatus.textContent = books[0].isRead
+    bookTitle.classList.add("card__title")
+    bookAuthor.classList.add("card__author")
+    bookPages.classList.add("card__pages")
+    readStatus.classList.add("card__read")
+
+    const lastBook = books[books.length-1]
+
+    bookTitle.textContent = lastBook.title
+    bookAuthor.textContent = lastBook.author
+    bookPages.textContent = `${lastBook.pages} pages`
+    readStatus.textContent = lastBook.isRead
 
     bookCard.appendChild(bookTitle)
     bookCard.appendChild(bookAuthor)
     bookCard.appendChild(bookPages)
     bookCard.appendChild(readStatus)
     mainSection.appendChild(bookCard)
+}
+
+function clearInput() {
+    titleForm.value = null
+    authorForm.value = null
+    pagesForm.value = null
+    isRead.value = false
 }
