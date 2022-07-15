@@ -237,6 +237,12 @@ section {
     color:rgb(255, 153, 153);
     font-size: 1.1rem;
     padding: 0;
+
+    transition: color 200ms ease-out;
+}
+
+.cancel-btn:hover {
+    color:rgb(253, 117, 117);
 }
 
 .main__section-grid {
