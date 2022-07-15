@@ -82,12 +82,24 @@ function bookGridAddBook() {
     bookPages.textContent = `${lastBook.pages} pages`
     readStatus.textContent = lastBook.isRead
 
+    bookCard.dataset.id = books.indexOf(lastBook)
+    closeBtn.dataset.id = books.indexOf(lastBook)
+
+
     bookCard.appendChild(bookTitle)
     bookCard.appendChild(bookAuthor)
     bookCard.appendChild(bookPages)
     bookCard.appendChild(readStatus)
     bookCard.appendChild(closeBtn)
     mainSection.appendChild(bookCard)
+
+    closeBtn.addEventListener("click", function(){
+        if (closeBtn.dataset.id === bookCard.dataset.id){
+            bookCard.style.display = "none";
+            let deletedBook = books.splice(books[bookCard.dataset.id], 1)
+            console.log(books)
+        }
+    })
 }
 
 function clearInput() {
