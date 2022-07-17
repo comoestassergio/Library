@@ -41,7 +41,7 @@ main {
     font-weight: 700;
 }
 
-section {
+.main__section-grid {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,6 +120,8 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    margin-inline: auto;
 
     height: 420px;
     background-color: transparent;
@@ -382,4 +384,17 @@ section {
     .book-card__close-btn {
         opacity: 1;
     }
+
+    .pop-up {
+        width: 100%;
+        height: 500px;
+    }
+
+    .book-card {
+        background-size: 150%;
+    }
+}
+
+@media (max-width: 801px) {
+    
 }
