@@ -13,4 +13,5 @@ Assets:
 Close icon: https://www.flaticon.com/free-icons/close
 
 Card background: https://unsplash.com/@maxberg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText 
-  
+
+favicon: https://www.flaticon.com/free-icons/book
