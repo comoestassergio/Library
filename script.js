@@ -22,7 +22,7 @@ const Book = {
     }
 }
 
-// Listening for cliks on Add Book button
+// Listening for clicks on Add Book button
 
 addBookBtn.addEventListener("click", function(){
     popUp.classList.add("visible")
@@ -36,10 +36,11 @@ addBookBtn.addEventListener("click", function(){
 // Create a Book object and trigger book card creation
 
 submitBtn.addEventListener("click", function(){
-    pushBook(createBook(), books)
+    let tempBook = createBook()
+    pushBook(tempBook, books)
+    commitToLocalStorage(books)
     popUp.classList.remove("visible")
     mainSection.classList.remove("dimmed")
-    console.log(books)
     bookGridAddBook()
     clearInput()
 })
@@ -67,7 +68,6 @@ function bookGridAddBook() {
     bookTitle.textContent = lastBook.title
     bookAuthor.textContent = lastBook.author
     bookPages.textContent = `${lastBook.pages} pages`
-    checkBoxValue()
     readStatus.textContent = lastBook.isRead
 
     bookCard.dataset.id = books.indexOf(lastBook)
@@ -103,6 +103,59 @@ function bookGridAddBook() {
     })
 }
 
+window.onload = function(){
+    for (let i = 0; i < window.localStorage.length; i++){
+        let localStorageBook = JSON.parse(window.localStorage[i])
+        console.log(localStorageBook)
+
+        const bookCard = document.createElement("div")
+        bookCard.classList.add("book-card")
+        const bookTitle = document.createElement("p")
+        const bookAuthor = document.createElement("p")
+        const bookPages = document.createElement("p")
+        const readStatus = document.createElement("button")
+        const closeBtn = document.createElement("button")
+
+        bookTitle.classList.add("card__title")
+        bookAuthor.classList.add("card__author")
+        bookPages.classList.add("card__pages")
+        readStatus.classList.add("card__read", "btn")
+        closeBtn.classList.add("book-card__close-btn")
+
+        bookTitle.textContent = localStorageBook.title
+        bookAuthor.textContent = localStorageBook.author
+        bookPages.textContent = `${localStorageBook.pages} pages`
+        readStatus.textContent = localStorageBook.isRead
+
+
+        bookCard.appendChild(bookTitle)
+        bookCard.appendChild(bookAuthor)
+        bookCard.appendChild(bookPages)
+        bookCard.appendChild(readStatus)
+        bookCard.appendChild(closeBtn)
+        mainSection.appendChild(bookCard)
+
+        readStatus.addEventListener("click", function(){
+            const currentBook = books[readStatus.dataset.id]
+    
+            if (currentBook.isRead === "Not finished"){
+                currentBook.isRead = "Finished"
+            } else {
+                currentBook.isRead = "Not finished"
+            }
+    
+            readStatus.textContent = currentBook.isRead
+        })
+    
+        closeBtn.addEventListener("click", function(){
+            if (closeBtn.dataset.id === bookCard.dataset.id){
+                bookCard.style.display = "none";
+                let deletedBook = books.splice(books[bookCard.dataset.id], 1)
+            }
+        })
+    }
+}
+
 // Utilities
 
 function createBook(){
@@ -124,9 +177,24 @@ function clearInput() {
     pagesForm.value = null
 }
 
-function checkBoxValue() {
+function checkBoxValue(book) {
     isRead.checked ? isRead.value = "Finished" :
     isRead.value = "Not finished"
 
+    isRead.textContent = book.isRead
+
+    console.log(isRead.checked)
     console.log(isRead.value)
+}
+
+function commitToLocalStorage(obj){
+    window.localStorage.setItem(books.indexOf(obj),  JSON.stringify(books[books.length-1]))
+}
+
+function getFromLocalStorage(obj) {
+    return JSON.parse(window.localStorage.getItem(books.indexOf(obj)))
+}
+
+function removeFromLocalStorage(obj){
+    window.localStorage.removeItem(books.indexOf(obj))
 }
