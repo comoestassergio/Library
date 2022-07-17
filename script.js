@@ -69,8 +69,7 @@ function bookGridAddBook() {
     bookTitle.textContent = lastBook.title
     bookAuthor.textContent = lastBook.author
     bookPages.textContent = `${lastBook.pages} pages`
-    checkBoxValue()
-    readStatus.textContent = lastBook.isRead
+    readStatus.textContent = checkBoxValue(lastBook)
 
     bookCard.dataset.id = books.indexOf(lastBook)
     closeBtn.dataset.id = books.indexOf(lastBook)
@@ -100,7 +99,6 @@ function bookGridAddBook() {
         if (closeBtn.dataset.id === bookCard.dataset.id){
             bookCard.style.display = "none";
             let deletedBook = books.splice(books[bookCard.dataset.id], 1)
-            console.log(books)
         }
     })
 }
@@ -126,9 +124,10 @@ function clearInput() {
     pagesForm.value = null
 }
 
-function checkBoxValue() {
-    isRead.checked ? isRead.value = "Finished" :
-    isRead.value = "Not finished"
-
-    console.log(isRead.value)
+function checkBoxValue(book) {
+    if (isRead.checked) {
+        return book.isRead.value = "Finished"
+    } else {
+        return book.isRead.value = "Not finished"
+    }
 }
