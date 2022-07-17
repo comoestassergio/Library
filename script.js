@@ -36,12 +36,14 @@ addBookBtn.addEventListener("click", function(){
 // Create a Book object and trigger book card creation
 
 submitBtn.addEventListener("click", function(){
-    pushBook(createBook(), books)
-    popUp.classList.remove("visible")
-    mainSection.classList.remove("dimmed")
-    console.log(books)
-    bookGridAddBook()
-    clearInput()
+    if (titleForm.value.length > 0 && authorForm.value.length > 0 && pagesForm.value.length > 0){
+        pushBook(createBook(), books)
+        popUp.classList.remove("visible")
+        mainSection.classList.remove("dimmed")
+        console.log(books)
+        bookGridAddBook()
+        clearInput()
+    }
 })
 
 // Create a book card
