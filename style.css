@@ -336,7 +336,7 @@ section {
     z-index: 1;
 }
 
-.card__title {
+.book-card__title {
     font-weight: 700;
     text-transform: uppercase;
     font-size: 1.4rem;
@@ -345,7 +345,7 @@ section {
 
 }
 
-.card__author {
+.book-card__author {
     font-style: italic;
     font-size: 1.3rem;
 
@@ -355,13 +355,13 @@ section {
     margin-bottom: 1rem;
 }
 
-.card__pages {
+.book-card__pages {
     font-size: 1rem;
     margin-top: 0;
     margin-bottom: 2rem;
 }
 
-.card__read {
+.book-card__read {
     font-size: 1rem;
     margin-bottom: .75rem;
 
